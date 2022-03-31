@@ -4,8 +4,8 @@ public class Conta {
 	//atributos
 	private int agencia;
 	private int numeroConta;
-	private double saldo;
-	private String titular;
+	protected double saldo;
+	private PessoaHeranca titular;
 	
 	
 	public Conta() { //padrão
@@ -13,7 +13,7 @@ public class Conta {
 	}
 	
 	
-	public Conta(int agencia, int numeroConta, String titular) { //sobrecarregado
+	public Conta(int agencia, int numeroConta, PessoaHeranca titular) { //sobrecarregado
 		this.agencia = agencia;
 		this.numeroConta = numeroConta;
 		this.titular = titular;
@@ -45,6 +45,8 @@ public class Conta {
 		return false;
 	}
 	
+	
+	//métodos Getters and Setters
 
 	public int getAgencia() {
 		return agencia;
@@ -76,12 +78,12 @@ public class Conta {
 	}
 
 
-	public String getTitular() {
+	public PessoaHeranca getTitular() {
 		return titular;
 	}
 
 
-	public void setTitular(String titular) {
+	public void setTitular(PessoaHeranca titular) {
 		this.titular = titular;
 	}
 	
