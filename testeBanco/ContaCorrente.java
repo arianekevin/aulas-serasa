@@ -7,7 +7,6 @@ public class ContaCorrente extends Conta {
 	public ContaCorrente() {
 		this.limite = 500.0;
 	}
-	
 	@Override
 	public boolean sacar(double valor) {
 		if (valor >= 0 && getSaldoComLimite() >= valor) {
