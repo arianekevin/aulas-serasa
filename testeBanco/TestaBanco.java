@@ -86,7 +86,7 @@ public class TestaBanco {
 	funcionario1.setUsuario("admin");
 	funcionario1.setSenha("admin");
 	
-	boolean respostaAutenticacao = funcionario1.autenticarSistema("admin", "admin123");
+	boolean respostaAutenticacao = funcionario1.autenticarSistema("admin", "admin");
 	
 	if (respostaAutenticacao) {
 		System.out.println("Bem vindo(a), " + funcionario1.getNome());
@@ -102,7 +102,7 @@ public class TestaBanco {
 	System.out.println(funcionario1.getUsuario());
 	System.out.println(funcionario1.getSenha());
 	
-	System.out.println(funcionario1.alterarSenha("admin", "admin", "casas"));
+	System.out.println(funcionario1.alterarSenha("ariane", "admin", "casas"));
 	
 	System.out.println(funcionario1.getUsuario());
 	System.out.println(funcionario1.getSenha());

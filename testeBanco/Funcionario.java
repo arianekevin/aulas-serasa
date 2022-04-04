@@ -110,21 +110,34 @@ public class Funcionario implements AcessoInterno  {
 	}
 	
 	public String alterarUsuario(String usuarioAntigo, String senhaAntiga, String usuarioNovo) {
-		if (autenticarSistema(usuarioAntigo, senhaAntiga)) {
-			this.usuario = usuarioNovo;
-			return "Usuário alterado com sucesso!";
-		} else {
-			return "Usuário ou senha inválidos";
+		if (validateSizeUserSenha(usuarioNovo, null)) {
+			if (autenticarSistema(usuarioAntigo, senhaAntiga)) {
+				this.usuario = usuarioNovo;
+				return "Usuário alterado com sucesso!";
+			} else {
+				return "Usuário ou senha inválidos";
+			}
 		}
+		return "Usuário precisa ter 12 caracteres ou menos";
 	}
 	
 	public String alterarSenha(String usuarioAntigo, String senhaAntiga, String senhaNova) {
-		if (autenticarSistema(usuarioAntigo, senhaAntiga)) {
-			this.usuario = senhaAntiga;
-			return "Senha alterada com sucesso!";
-		} else {
-			return "Usuário ou senha inválidos";
+		if (validateSizeUserSenha(null, senhaNova)) {
+			if (autenticarSistema(usuarioAntigo, senhaAntiga)) {
+				this.senha = senhaNova;
+				return "Senha alterada com sucesso!";
+			} else {
+				return "Usuário ou senha inválidos";
+			}
 		}
+		return "Senha precisa ter 8 caracteres ou menos";
+	}
+	
+	public boolean validateSizeUserSenha(String novoUsuario, String novaSenha) {
+		if ((novoUsuario == null || novoUsuario.length() <= 12) && (novaSenha == null || novaSenha.length() <= 8)) {
+			return true;
+		}
+		return false;
 	}
 	
 	
